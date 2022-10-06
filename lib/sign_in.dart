@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:project_gps_system/student/register.dart' as student;
+import 'package:project_gps_system/faculty/register.dart' as faculty;
 
 class SignIn extends StatefulWidget {
-  const SignIn({Key? key}) : super(key: key);
-
+  final String value;
+  const SignIn(this.value, {Key? key}) : super(key: key);
   @override
-  State<SignIn> createState() => _SignInState();
+  State<SignIn> createState() => _SignInState(value);
 }
 
 class _SignInState extends State<SignIn> {
+  final String value;
+  _SignInState(this.value) : super();
+
+  changeScreen(BuildContext context) =>
+    (value=="Student")?
+    (Navigator.of(context).push(MaterialPageRoute(builder: (context) => const student.Register()))):
+    (Navigator.of(context).push(MaterialPageRoute(builder: (context) => const faculty.Register())));
+
   TextEditingController mailController = TextEditingController();
   TextEditingController passController = TextEditingController();
   final String mail = "";
@@ -15,9 +25,12 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
   final screenHeight = MediaQuery.of(context).size.height;
+  final screenWidth = MediaQuery.of(context).size.width;
   final padding = MediaQuery.of(context).padding;
     return Scaffold(
       body: Container(
+        width: screenWidth,
+        height: screenHeight,
         decoration: const BoxDecoration(
           image: DecorationImage(
             repeat: ImageRepeat.repeat,
@@ -76,13 +89,15 @@ class _SignInState extends State<SignIn> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text('''Don't have an account?'''),
-                  Row(
-                    children: [
-                      Container(
-                        child: Text("Sign up"),
-                      ),
-                      const Icon(Icons.arrow_right_sharp),
-                    ],
+                  InkWell(
+                    mouseCursor: SystemMouseCursors.click,
+                    onTap: () => changeScreen(context),
+                    child: Row(
+                      children: const [
+                        Text("Sign up"),
+                        Icon(Icons.arrow_right_sharp),
+                      ],
+                    ),
                   ),
                 ],
               ),

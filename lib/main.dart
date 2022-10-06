@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_gps_system/faculty/sign_in.dart' as faculty_signin;
-import 'package:project_gps_system/student/sign_in.dart' as student_signin;
+import 'package:project_gps_system/sign_in.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -19,8 +18,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>{
   @override
   Widget build(BuildContext context){
   final screenHeight = MediaQuery.of(context).size.height;
+  final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
+        width: screenWidth,
+        height: screenHeight,
         decoration: const BoxDecoration(
           image: DecorationImage(
             repeat: ImageRepeat.repeat,
@@ -52,7 +54,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>{
                   Column(
                     children: [
                       InkWell(
-                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const student_signin.SignIn())),
+                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const SignIn("Student"))),
                         mouseCursor: SystemMouseCursors.click,
                         child: Container(
                           padding: const EdgeInsets.all(5),
@@ -65,7 +67,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>{
                       ),
                       const SizedBox(height: 10,),
                       InkWell(
-                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const faculty_signin.SignIn())),
+                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const SignIn("Faculty"))),
                         mouseCursor: SystemMouseCursors.click,
                         child: Container(
                           padding: const EdgeInsets.all(5),
