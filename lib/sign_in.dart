@@ -43,6 +43,7 @@ class _SignInState extends State<SignIn> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              const SizedBox(height: 1,),
               Column(
                 children: [
                   Container(
@@ -55,7 +56,6 @@ class _SignInState extends State<SignIn> {
                   const Text("Sign In",style: TextStyle(color: Colors.white,fontSize: 25),),
                 ],
               ),
-              SizedBox(height: screenHeight*0.01,),
               Column(
                 children: [
                   TextField(

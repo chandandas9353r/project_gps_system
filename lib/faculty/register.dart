@@ -12,6 +12,7 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
   final screenWidth = MediaQuery.of(context).size.width;
   final screenHeight = MediaQuery.of(context).size.height;
+  final padding = MediaQuery.of(context).padding;
     return Scaffold(
       body: Container(
         width: screenWidth,
@@ -24,13 +25,22 @@ class _RegisterState extends State<Register> {
           ),
         ),
         child: SafeArea(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text("Faculty"),
-              ],
-            ),
+          minimum: EdgeInsets.fromLTRB(20, padding.top+20, 20, padding.bottom+20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Text("Faculty"),
+              TextField(),
+              TextField(),
+              TextField(),
+              TextField(),
+              TextField(),
+              TextField(),
+              TextField(),
+              TextField(),
+              TextField(),
+              TextField(),
+            ],
           ),
         ),
       ),
