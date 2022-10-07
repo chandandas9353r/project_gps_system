@@ -8,17 +8,20 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+
+  final List<TextEditingController> _controller = [];
+  final List<String> controllerLabels = ["First Name","Last Name","Email Address","Phone Number","Date of Birth","Student ID","Controller1","Controller2","Controller3","Controller4"];
   
-  final _firstName = TextEditingController();
-  final _lastName = TextEditingController();
-  final _emailAddress = TextEditingController();
-  final _phoneNumber = TextEditingController();
-  final _dateOfBirth = TextEditingController();
-  final _studentID = TextEditingController();
-  final _controller1 = TextEditingController();
-  final _controller2 = TextEditingController();
-  final _controller3 = TextEditingController();
-  final _controller4 = TextEditingController();
+  // final _firstName = TextEditingController();
+  // final _lastName = TextEditingController();
+  // final _emailAddress = TextEditingController();
+  // final _phoneNumber = TextEditingController();
+  // final _dateOfBirth = TextEditingController();
+  // final _studentID = TextEditingController();
+  // final _controller1 = TextEditingController();
+  // final _controller2 = TextEditingController();
+  // final _controller3 = TextEditingController();
+  // final _controller4 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +39,20 @@ class _RegisterState extends State<Register> {
             image: AssetImage("lib/assets/images/background.jpeg"),
           ),
         ),
-        child: SafeArea(
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return TextField(
+              controller: _controller[index],
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: controllerLabels[index],
+              ),
+            );
+          },
+          itemCount: controllerLabels.length,
+        ),
+        
+        SafeArea(
           minimum: EdgeInsets.fromLTRB(20, padding.top+20, 20, padding.bottom+20),
           child: ListView(
               scrollDirection: Axis.vertical,
