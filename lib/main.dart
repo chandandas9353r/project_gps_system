@@ -27,7 +27,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>{
           image: DecorationImage(
             repeat: ImageRepeat.repeat,
             fit: BoxFit.fill,
-            image: AssetImage("lib/assets/images/background.jpeg"),
+            image: AssetImage("lib/assets/images/new_background.jpg"),
           ),
         ),
         child: Center(

@@ -8,16 +8,18 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  TextEditingController _firstName = TextEditingController();
-  TextEditingController _lastName = TextEditingController();
-  TextEditingController _emailAddress = TextEditingController();
-  TextEditingController _phoneNumber = TextEditingController();
-  TextEditingController _dateOfBirth = TextEditingController();
-  TextEditingController _studentID = TextEditingController();
-  TextEditingController _controller1 = TextEditingController();
-  TextEditingController _controller2 = TextEditingController();
-  TextEditingController _controller3 = TextEditingController();
-  TextEditingController _controller4 = TextEditingController();
+  
+  final _firstName = TextEditingController();
+  final _lastName = TextEditingController();
+  final _emailAddress = TextEditingController();
+  final _phoneNumber = TextEditingController();
+  final _dateOfBirth = TextEditingController();
+  final _studentID = TextEditingController();
+  final _controller1 = TextEditingController();
+  final _controller2 = TextEditingController();
+  final _controller3 = TextEditingController();
+  final _controller4 = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
   final screenWidth = MediaQuery.of(context).size.width;
@@ -31,7 +33,7 @@ class _RegisterState extends State<Register> {
           image: DecorationImage(
             repeat: ImageRepeat.repeat,
             fit: BoxFit.fill,
-            image: AssetImage("lib/assets/images/background.jpeg"),
+            image: AssetImage("lib/assets/images/new_background.jpg"),
           ),
         ),
         child: SafeArea(

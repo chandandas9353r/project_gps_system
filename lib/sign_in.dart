@@ -35,7 +35,7 @@ class _SignInState extends State<SignIn> {
           image: DecorationImage(
             repeat: ImageRepeat.repeat,
             fit: BoxFit.fill,
-            image: AssetImage("lib/assets/images/background.jpeg"),
+            image: AssetImage("lib/assets/images/new_background.jpg"),
           ),
         ),
         child: SafeArea(
