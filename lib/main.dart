@@ -54,7 +54,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>{
                   Column(
                     children: [
                       InkWell(
-                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const SignIn("Student"))),
+                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SignIn("Student"))),
                         mouseCursor: SystemMouseCursors.click,
                         child: Container(
                           padding: const EdgeInsets.all(5),
@@ -67,7 +67,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>{
                       ),
                       const SizedBox(height: 10,),
                       InkWell(
-                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const SignIn("Faculty"))),
+                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SignIn("Faculty"))),
                         mouseCursor: SystemMouseCursors.click,
                         child: Container(
                           padding: const EdgeInsets.all(5),

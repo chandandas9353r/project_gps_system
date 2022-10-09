@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-class Register extends StatefulWidget {
-  const Register({Key? key}) : super(key: key);
-  @override
-  State<Register> createState() => _RegisterState();
+abstract class Register{
+  late double screenWidth;
+  late double screenHeight;
+  late EdgeInsets screenPadding;
 }
 
-class _RegisterState extends State<Register> {
-  final List<TextEditingController> _controller = [TextEditingController(),TextEditingController(),TextEditingController(),TextEditingController(),TextEditingController(),TextEditingController(),TextEditingController(),TextEditingController(),TextEditingController(),TextEditingController()];
-  final List<String> controllerLabels = ["First Name","Last Name","Email Address","Phone Number","Date of Birth","Student ID","Controller1","Controller2","Controller3","Controller4"];
+class FacultyRegister extends StatelessWidget implements Register {
+
+  FacultyRegister({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-  final screenWidth = MediaQuery.of(context).size.width;
-  final screenHeight = MediaQuery.of(context).size.height;
-  final padding = MediaQuery.of(context).padding;
+    screenHeight = MediaQuery.of(context).size.height;
+    screenWidth = MediaQuery.of(context).size.width;
+    screenPadding = MediaQuery.of(context).padding;
     return Scaffold(
       body: Container(
         width: screenWidth,
@@ -26,7 +26,63 @@ class _RegisterState extends State<Register> {
           ),
         ),
         child: SafeArea(
-          minimum: EdgeInsets.fromLTRB(20, padding.top+20, 20, padding.bottom+20),
+          minimum: EdgeInsets.fromLTRB(20, screenPadding.top+20, 20, screenPadding.bottom+20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Text("Faculty"),
+              TextField(),
+              TextField(),
+              TextField(),
+              TextField(),
+              TextField(),
+              TextField(),
+              TextField(),
+              TextField(),
+              TextField(),
+              TextField(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+  
+  @override
+  late double screenHeight;
+  
+  @override
+  late EdgeInsets screenPadding;
+  
+  @override
+  late double screenWidth;
+}
+
+class StudentRegister extends StatelessWidget implements Register {
+
+  final List<TextEditingController> _controller = [TextEditingController(),TextEditingController(),TextEditingController(),TextEditingController(),TextEditingController(),TextEditingController(),TextEditingController(),TextEditingController(),TextEditingController(),TextEditingController()];
+  final List<String> controllerLabels = ["First Name","Last Name","Email Address","Phone Number","Date of Birth","Student ID","Controller1","Controller2","Controller3","Controller4"];
+
+  StudentRegister({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    screenHeight = MediaQuery.of(context).size.height;
+    screenWidth = MediaQuery.of(context).size.width;
+    screenPadding = MediaQuery.of(context).padding;
+    return Scaffold(
+      body: Container(
+        width: screenWidth,
+        height: screenHeight,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            repeat: ImageRepeat.repeat,
+            fit: BoxFit.fill,
+            image: AssetImage("lib/assets/images/background.jpeg"),
+          ),
+        ),
+        child: SafeArea(
+          minimum: EdgeInsets.fromLTRB(20, screenPadding.top+20, 20, screenPadding.bottom+20),
           child: ListView.builder(
             itemBuilder: (context, index) {
               return Column(
@@ -65,4 +121,13 @@ class _RegisterState extends State<Register> {
       ),
     );
   }
+  
+  @override
+  late double screenHeight;
+  
+  @override
+  late EdgeInsets screenPadding;
+  
+  @override
+  late double screenWidth;
 }
