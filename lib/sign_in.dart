@@ -31,10 +31,14 @@ class SignIn extends StatelessWidget {
           ),
         ),
         child: SafeArea(
+          maintainBottomViewPadding: true,
           minimum: EdgeInsets.fromLTRB(20, padding.top+20, 20, padding.bottom+20),
-          child: ListView(
-            scrollDirection: Axis.vertical,
+          child: SizedBox(
+            width: screenWidth-40,
+            height: screenHeight-padding.top-padding.bottom-40,
+            child: ListView(
             children: [
+              SizedBox(height: (screenHeight-padding.top-padding.bottom-40)*0.08,),
               Column(
                 children: [
                   Container(
@@ -43,9 +47,11 @@ class SignIn extends StatelessWidget {
                     ),
                     child: const Icon(Icons.android,size: 50,),
                   ),
+                  const SizedBox(height: 10,),
                   const Text("Sign In",style: TextStyle(color: Colors.white,fontSize: 25),),
                 ],
               ),
+              SizedBox(height: (screenHeight-padding.top-padding.bottom-40)*0.2,),
               Column(
                 children: [
                   TextField(
@@ -56,6 +62,7 @@ class SignIn extends StatelessWidget {
                     ),
                     keyboardType: TextInputType.emailAddress,
                   ),
+                  const SizedBox(height: 20,),
                   TextField(
                     controller: passController,
                     decoration: const InputDecoration(
@@ -63,6 +70,7 @@ class SignIn extends StatelessWidget {
                       labelText: "Password",
                     ),
                   ),
+                  const SizedBox(height: 50,),
                   Container(
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
@@ -73,7 +81,9 @@ class SignIn extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox(height: (screenHeight-padding.top-padding.bottom-40)*0.2,),
               Column(
+                mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text('''Don't have an account?'''),
@@ -91,7 +101,7 @@ class SignIn extends StatelessWidget {
               ),
             ],
           ),
-        ),
+        ),),
       ),
     );
   }
