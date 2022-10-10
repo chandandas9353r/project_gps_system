@@ -11,8 +11,8 @@ class SignIn extends StatelessWidget {
   final String value;
 
   changeScreen(context) => (value=="Student")?
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => StudentRegister())):
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => FacultyRegister()));
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const StudentRegister())):
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const FacultyRegister()));
 
   @override
   Widget build(BuildContext context) {
