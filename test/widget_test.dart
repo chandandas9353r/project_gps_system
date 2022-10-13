@@ -11,6 +11,6 @@ import 'package:project_gps_system/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const WelcomeScreen());
+    await tester.pumpWidget(WelcomeScreen());
   });
 }
