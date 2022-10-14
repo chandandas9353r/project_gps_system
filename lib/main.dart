@@ -7,13 +7,13 @@ void main() => runApp(MaterialApp(
 ));
 
 class SnapScreenBtn extends StatelessWidget{
-  const SnapScreenBtn({required this.value, Key? key}) : super(key: key);
-  final String value;
-  changeScreen(value,context) => Navigator.push(context, MaterialPageRoute(builder: (context) => SignIn(value: "$value")));
+  final String title;
+  const SnapScreenBtn({required this.title, Key? key}) : super(key: key);
+  changeScreen(value,context) => Navigator.push(context, MaterialPageRoute(builder: (context) => SignIn(title: title)));
   @override
   Widget build(BuildContext context){
     return InkWell(
-      onTap: () => changeScreen(value,context),
+      onTap: () => changeScreen(title,context),
       child: Container(
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
@@ -21,7 +21,7 @@ class SnapScreenBtn extends StatelessWidget{
           borderRadius: BorderRadius.circular(10),
         ),
         child: Text(
-          value,
+          title,
           style: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
@@ -55,9 +55,9 @@ class WelcomeScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
-          SnapScreenBtn(value: "Student"),
+          SnapScreenBtn(title: "Student"),
           SizedBox(height: 20,),
-          SnapScreenBtn(value: "Faculty"),
+          SnapScreenBtn(title: "Faculty"),
         ],
       ),
     ),
