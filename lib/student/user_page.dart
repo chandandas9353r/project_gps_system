@@ -16,6 +16,21 @@ class _UserPageState extends State<UserPage> {
     ReportsPage(),
     ProfilePage(),
   ];
+  final List<String> _dataList = [
+    "Home",
+    "Reports",
+    "Profile",
+  ];
+  final List<IconData> _iconsList = [
+    Icons.home_outlined,
+    Icons.analytics_outlined,
+    Icons.person_outline,
+  ];
+  final List<IconData> _selectedIconsList = [
+    Icons.home,
+    Icons.analytics,
+    Icons.person,
+  ];
   Widget _selectedPage = const DashboardPage();
   @override
   Widget build(BuildContext context) {
@@ -25,8 +40,10 @@ class _UserPageState extends State<UserPage> {
           _selectedPage,
           CustomBottomNavigationBar(
             pagesList: _pagesList,
+            dataList: _dataList,
+            iconsList: _iconsList,
+            selectedIconsList: _selectedIconsList,
             selectedPage: _selectedPage,
-            selectedIndex: 0,
             changePage: (page) => setState(
               () => _selectedPage = page,
             ),
