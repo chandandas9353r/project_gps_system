@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_gps_system/student/user_page.dart';
 
 class Register extends StatelessWidget {
   final String title;
@@ -79,6 +80,30 @@ class PortraitWidget extends StatelessWidget {
                   labelStyle: const TextStyle(color: Colors.white),
                 ),
               ),
+              if (index == _controllerLabels.length - 1)
+                GestureDetector(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const UserPage(),
+                    ),
+                  ),
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 50.0),
+                    padding: const EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                      color: Colors.yellow.shade700,
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: const Text(
+                      "Register",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
             ],
           );
         },
