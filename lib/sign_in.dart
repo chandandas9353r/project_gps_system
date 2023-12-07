@@ -1,11 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:project_gps_system/register.dart';
+import 'package:project_gps_system/student/user_page.dart' as StudentPage;
+import 'package:project_gps_system/faculty/user_page.dart' as FacultyPage;
 
-class PortraitWidget extends StatelessWidget {
+class PortraitWidget extends StatefulWidget{
   final String title;
+  const PortraitWidget(this.title,{super.key});
+  @override
+  State<PortraitWidget> createState() => _PortraitWidgetState();
+}
+
+class _PortraitWidgetState extends State<PortraitWidget> {
   final TextEditingController _mailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
-  PortraitWidget(this.title, {super.key});
+  userSignIn(title,context){
+    if(_mailController.text=="faculty@login" && _passController.text=="login"){
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const FacultyPage.UserPage()));
+    }
+  }
+
+  @override
+  void initState(){
+    super.initState();
+  }
+
+  @override
+  void dispose(){
+    _mailController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -63,7 +86,7 @@ class PortraitWidget extends StatelessWidget {
                     border: OutlineInputBorder(),
                     labelText: "Email",
                   ),
-                  keyboardType: TextInputType.emailAddress,
+                  keyboardType: TextInputType.emailAddress
                 ),
               ),
               Flexible(
@@ -76,14 +99,17 @@ class PortraitWidget extends StatelessWidget {
                 ),
               ),
               Flexible(
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurpleAccent,
-                    borderRadius: BorderRadius.circular(8),
+                child: GestureDetector(
+                  onTap: () => userSignIn(widget.title,context),
+                  child: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurpleAccent,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Text("Sign in",
+                        style: TextStyle(color: Colors.white, fontSize: 20)),
                   ),
-                  child: const Text("Sign in",
-                      style: TextStyle(color: Colors.white, fontSize: 20)),
                 ),
               ),
             ],
@@ -101,7 +127,7 @@ class PortraitWidget extends StatelessWidget {
                 onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Register(title: title))),
+                        builder: (context) => Register(title: widget.title))),
                 child: Row(
                   children: const [
                     Text("Sign up"),
